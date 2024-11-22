@@ -1,4 +1,7 @@
 import express from "express";
+import conectarAoBanco from "./src/config/dbConfig.js";
+
+await conectarAoBanco(process.env.STRING_CONEXAO);
 
 const posts = [
     {
@@ -54,3 +57,4 @@ app.get("/posts/:id", (req, res) => {
     const index = buscarPostPorID(req.params.id)
     res.status(200).json(posts[index]);
 });
+
