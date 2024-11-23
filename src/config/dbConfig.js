@@ -15,5 +15,3 @@ export default async function conectarAoBanco(stringConexao) {
         process.exit();
     }
 }
-
-//parei no minuto 27:29 do video da aula 03
