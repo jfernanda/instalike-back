@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import { ObjectId } from "mongodb";
 import conectarAoBanco from "../config/dbConfig.js";
 
@@ -19,5 +20,5 @@ export async function atualizarPost(id, novoPost) {
     const db = conexao.db("imersao-instalike");
     const colecao = db.collection("posts");
     const objID = ObjectId.createFromHexString(id);
-    return colecao.updateOne(novoPost);
+    return colecao.updateOne({_id: new ObjectId(objID)}, {$set: novoPost});
 }
